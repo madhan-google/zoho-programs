@@ -1,16 +1,40 @@
 import java.io.*;
 import java.util.*;
-class A{
+class Parent{
     int count;
-    A(){
+    static List<Integer> list = new ArrayList<>();
+    Parent(){
         count = 0;
-        System.out.println("im A");
+        // list = new ArrayList<>();
     }
 }
-class B extends A{
+class A extends Parent{
+    A(){
+        System.out.println("im A");
+        count = 10;
+    }
+    public void setInt(int x){
+        list.add(x);
+    }
+    public List<Integer> get(){
+        return list;
+    }
+    public void show(){
+        System.out.println(list);
+    }
+}
+class B extends Parent{
     B(){
         System.out.println("im B");
-        count = 10;
+    }
+    public void setInt(int x){
+        list.add(x);
+    }
+    public List<Integer> get(){
+        return list;
+    }
+    public void show(){
+        System.out.println(list);
     }
 }
 public class Main {
@@ -24,8 +48,12 @@ public class Main {
         // System.out.println((a|b)+" -\t"+Integer.toBinaryString((a|b)));
         // System.out.println((sn.next().charAt(0))<(sn.next().charAt(0)));
         A a = new A();
-        System.out.println(a.count);
         B b = new B();
-        System.out.println(a.count);
+        a.setInt(10);
+        a.setInt(20);
+        a.setInt(30);
+        a.get().add(40);
+        b.show();
+        
     }
 }

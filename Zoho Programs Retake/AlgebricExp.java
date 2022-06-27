@@ -115,7 +115,7 @@ public class AlgebricExp {
         }else{
             head = create(head, num, alpha, count);
         }
-        print(head);
+        // print(head);
         return head;
     }
 
